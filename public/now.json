@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "https://christinas-volunteer-portal.now.sh",
+    "name": "volunteer-portal",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }

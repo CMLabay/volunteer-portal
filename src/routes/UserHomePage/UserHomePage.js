@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NavBar from '../../components/NavBar/NavBar'
 
 export default class UserHomePage extends Component{
     static defaultProps = {
@@ -20,6 +21,8 @@ export default class UserHomePage extends Component{
     render(){
         return(
             <div>
+                {/*add links in as props */}
+                <NavBar></NavBar>
                 <h3>User HomePage</h3>
                 <button onClick={this.handleSignUp}>Sign up for a shift</button>
                 <button onClick={this.handleRequest}>Request a race credit</button>

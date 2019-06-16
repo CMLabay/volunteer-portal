@@ -1,0 +1,19 @@
+.app-nav{
+    margin:0;
+    background-color:navy;
+    color:white;
+    height:45px;
+}
+*{
+    font-family:sans-serif;
+}
+.nav-list{
+    text-align:right;
+}
+.nav-item{
+    display:inline;
+    padding-right: 10px;
+}
+div{
+    margin:0;
+}

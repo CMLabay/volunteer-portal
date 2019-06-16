@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import { Section } from '../../components/Utils/Utils'
+import NavBar from '../../components/NavBar/NavBar'
 
 export default class LoginPage extends Component{
     state = {
@@ -21,7 +22,6 @@ export default class LoginPage extends Component{
       }
 
   componentDidUpdate(){
-    console.log('this.state.username2', this.state.username)
     let destination = '/home'
     if(this.state.username === 'admin'){
         destination = '/admin'
@@ -32,7 +32,9 @@ export default class LoginPage extends Component{
 
     render(){
         return(
-            <Section className='LoginPage'>
+          <Section className='LoginPage'>
+              {/*add links in as props */}
+            <NavBar></NavBar>
             <h2>Login</h2>
             <LoginForm
               username={this.state.username}

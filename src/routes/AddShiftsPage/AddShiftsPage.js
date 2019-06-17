@@ -3,6 +3,19 @@ import NavBar from '../../components/NavBar/NavBar'
 import AddShiftForm from '../../components/AddShiftForm/AddShiftForm'
 
 export default class AddShiftsPage extends Component{
+    state = { 
+        navLinks: [
+            {
+                link:"Home", 
+                route:"admin"
+            },
+            {
+                link:"Logout",
+                route:"/"
+            }
+        ]
+    }
+
     static defaultProps = {
         history: {
           push: () => {},
@@ -10,17 +23,15 @@ export default class AddShiftsPage extends Component{
       }
     
       handleSubmit = () => {
-          console.log('shift added')
           const {history} = this.props
           history.push('/admin')
       }
     render(){
         return(
             <div>
-                <NavBar></NavBar>
+                <NavBar className="navbar" navLinks={this.state.navLinks}></NavBar>
                 <h3>Add New Shift</h3>
                 <AddShiftForm addShift={this.handleSubmit}></AddShiftForm>
-                <button onClick={this.handleSubmit}>Add Shift</button>
             </div>
             
         )

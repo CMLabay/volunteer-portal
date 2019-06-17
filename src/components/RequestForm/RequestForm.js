@@ -3,22 +3,12 @@ import { Button, Input} from '../Utils/Utils'
 import './RequestForm.css'
 
 export default class RequestForm extends Component{
-    static defaultProps = {
-        onLoginSuccess: () => {}
-      }
-    
-    state = { error: null }
 
-    handleSubmit = ev =>{
-        ev.preventDefault()
-        this.setState({ error: null })
-        console.log('submitted request')
-    }
     render(){
         return(
             <form 
               className="requestForm" 
-              onSubmit={this.handleSubmit}
+              onSubmit={this.props.onClick}
             >
                 <div>
                     <label 

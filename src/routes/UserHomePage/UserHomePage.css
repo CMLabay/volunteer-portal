@@ -1,0 +1,16 @@
+.my-shifts{
+    border-top: 1px solid lightgrey;
+    margin-top:10px;
+}
+button{
+    padding: 5px;
+    border-radius:3px;
+    margin:5px;
+    font-size:15px;
+    box-shadow: 2px 1px 2px lightgrey;
+    border-bottom:1px solid lightgrey;
+}
+button:hover{
+    background-color:red;
+    color:white;
+}

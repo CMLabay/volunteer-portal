@@ -1,15 +1,29 @@
 .avail-item{
-    border: 2px solid grey;
+    border: .5px solid lightgrey;
+    box-shadow: 2px 2px 2px lightgrey;
     border-radius:3px;
     margin:15px;
 }
+.avail-item:hover{
+    padding:30px;
+    margin:10px;
+}
 .avail-item > button{
     margin-bottom:15px;
+}
+.avail-item > button:hover{
+    background-color: red;
+    color:white;
 }
 .avail-item > p{
     font-size:20px;
     padding:0px;
 }
-/* .avail-item > p {
-    background-color:red;
-} */
+.available{
+    margin-left:20px;
+    margin-right:20px;
+    padding:0;
+}
+.signedUp{
+    display:none;
+}

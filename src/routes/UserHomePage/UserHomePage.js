@@ -1,7 +1,17 @@
 import React, { Component } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
+import "./UserHomePage.css"
+import ShiftList from '../../components/ShiftList/ShiftList';
 
 export default class UserHomePage extends Component{
+    state = { 
+        navLinks: [
+            {
+                link:"Logout",
+                route:"/"
+            }
+        ]
+    }
     static defaultProps = {
         history: {
           push: () => {},
@@ -9,23 +19,25 @@ export default class UserHomePage extends Component{
       }
     
       handleRequest = () => {
-          console.log('go to request credit')
           const {history} = this.props
           history.push('/request')
       }
       handleSignUp = () => {
-        console.log('go to sign up for shift')
         const {history} = this.props
         history.push('/shifts')
     }
     render(){
         return(
             <div>
-                {/*add links in as props */}
-                <NavBar></NavBar>
-                <h3>User HomePage</h3>
+                <NavBar className="navbar" navLinks={this.state.navLinks}></NavBar>
+                <h3>Christina Labay</h3>
+                <p>Current Credits: 5</p>
                 <button onClick={this.handleSignUp}>Sign up for a shift</button>
                 <button onClick={this.handleRequest}>Request a race credit</button>
+                <div className="my-shifts">
+                    <h3>My Upcoming Shifts:</h3>
+                    <ShiftList className="signedUp"></ShiftList>
+                </div>
             </div>
         )
     }

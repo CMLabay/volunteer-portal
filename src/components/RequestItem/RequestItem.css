@@ -1,0 +1,29 @@
+.requestItem > a{
+    text-decoration:none;
+    font-size:15px;
+    border:1px solid lightgrey;
+    border-radius:3px;
+    padding:5px;
+    color:black;
+    box-shadow: 2px 1px 2px lightgrey;
+}
+.requestItem > a:hover{
+    background-color:red;
+}
+.requestItem > button{
+    box-shadow: 2px 1px 2px lightgrey;
+    border-bottom:1px solid lightgrey;
+    margin-bottom:25px;
+}
+.requestItem{
+    border: .5px solid lightgrey;
+    box-shadow: 2px 2px 2px lightgrey;
+    border-radius:3px;
+    margin:15px;  
+    margin-left:15px;
+    margin-right:15px;
+}
+.requestItem:hover{
+    padding:30px;
+    margin:10px;    
+}

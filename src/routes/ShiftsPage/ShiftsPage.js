@@ -10,25 +10,28 @@ export default class ShiftsPage extends Component{
         },
       }
 
-    state = { navLinks: ['Home', 'Logout'] }
+      state = { 
+        navLinks: [
+            {
+                link:"Home", 
+                route:"home"
+            },
+            {
+                link:"Logout",
+                route:"/"
+            }
+        ]
+    }
 
     handleClick = () => {
-        console.log('shift successfully taken')
         const {history} = this.props
-        //push is not working
         history.push('/home')
     }
 
     render(){
-        console.log('state', this.state.navLinks)
         return(
             <div>
-                {/*add links in as props */}
-                <NavBar navLinks={this.state.navLinks}>
-                    {Object.keys(this.state.navLinks)
-                    .map(key => {
-                        return(<li key={key}>{this.state.navLinks[key]}</li>)
-                    })}
+                <NavBar className="navbar" navLinks={this.state.navLinks}>
                 </NavBar>
                 <h3>Sign up for a shift</h3>
                 <ShiftList onClick={this.handleClick} className="shift-list"></ShiftList>

@@ -15,11 +15,12 @@ export default class RequestForm extends Component{
                       htmlFor='race-name'>
                           Race Name
                     </label>
-                    <Input 
-                      name="race-name" 
-                      type="text"
-                      id="ReqForm-name">
-                    </Input>
+                    <select name="races">
+                      <option value="habanero">Habanero 100</option>
+                      <option value="brazos">Brazos Bend 100</option>
+                      <option value="mission">Mission Tejas</option>
+                      <option value="possum">Possum's Revenge</option>
+                    </select>
                 </div>
                 <div>
                     <label 

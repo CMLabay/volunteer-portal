@@ -13,7 +13,6 @@ export default class RegistrationForm extends Component {
     ev.preventDefault()
     const { full_name, user_name, password } = ev.target
     //code for actual registration will go here.
-    //this.props.onRegistrationSuccess()
     this.setState({ error: null })
     AuthApiService.postUser({
       email: user_name.value,
@@ -33,14 +32,15 @@ export default class RegistrationForm extends Component {
   }
 
   render(){
+      const { error } = this.state
       return(
           <form
             className='RegistrationForm'
             onSubmit={this.handleSubmit}
           >
-{/*         <div role='alert'>
+         <div role='alert'>
           {error && <p className='red'>{error}</p>}
-        </div> */}
+        </div>
         <div className='full_name'>
           <label htmlFor='RegistrationForm__full_name'>
             Full name <Required />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './NavBar.css'
-import NavLink from '../../components/NavLink/NavLink'
+import NavLink from '../NavLink/NavLink'
 
 export default class NavBar extends Component{
     static defaultProps = {

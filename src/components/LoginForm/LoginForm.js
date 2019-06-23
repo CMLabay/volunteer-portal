@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Input } from '../Utils/Utils'
+import TokenService from '../../services/token-service'
+import AuthApiService from '../../services/auth-api-service'
 
 export default class LoginForm extends Component {
     static defaultProps = {
@@ -8,13 +10,29 @@ export default class LoginForm extends Component {
   
     state = { error: null }
 
-    handleSubmit = ev => {
+    handleSubmitJwtAuth = ev => {
         ev.preventDefault()
         this.setState({ error: null })
         const { user_name, password } = ev.target
-        this.props.clickHandler(user_name.value)
-        console.log('in login submit', user_name.value)
-        this.props.onLoginSuccess()
+
+        AuthApiService.postLogin({
+          email: user_name.value,
+          password: password.value,
+        })
+          .then(res => {
+            user_name.value = ''
+            password.value = ''
+            TokenService.saveAuthToken(res.authToken)
+            this.props.clickHandler(user_name.value)
+            console.log('in login submit', user_name.value)
+            this.props.onLoginSuccess()
+          })
+            .catch(res => {
+              this.setState({ error: res.error })
+            })
+        //this.props.clickHandler(user_name.value)
+        //console.log('in login submit', user_name.value)
+        //this.props.onLoginSuccess()
     }
 
     render() {
@@ -22,7 +40,7 @@ export default class LoginForm extends Component {
         return (
           <form
             className='LoginForm'
-            onSubmit={this.handleSubmit}
+            onSubmit={this.handleSubmitJwtAuth}
           >
             <div role='alert'>
               {error && <p className='red'>{error}</p>}

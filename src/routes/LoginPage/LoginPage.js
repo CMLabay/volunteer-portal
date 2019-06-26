@@ -4,7 +4,7 @@ import { Section } from '../../components/Utils/Utils'
 
 export default class LoginPage extends Component{
     state = {
-        username: ''
+        userType: ''
     }
     static defaultProps = {
         location: {},
@@ -12,17 +12,17 @@ export default class LoginPage extends Component{
           push: () => {},
         },
       }
-      changeName = (name) => {
-          console.log('name',name)
-          let newName = name;
+      changeType = (type) => {
+          console.log('type',type)
+          let newType = type;
           this.setState({
-              username: newName
+              userType: newType
           });
       }
 
   componentDidUpdate(){
     let destination = '/home'
-    if(this.state.username === 'admin'){
+    if(this.state.userType === 'admin'){
         destination = '/admin'
     }
     const { history } = this.props
@@ -34,8 +34,8 @@ export default class LoginPage extends Component{
           <Section className='LoginPage'>
             <h2>Login</h2>
             <LoginForm
-              username={this.state.username}
-              clickHandler={this.changeName}
+              username={this.state.userType}
+              clickHandler={this.changeType}
             />
           </Section>
         )

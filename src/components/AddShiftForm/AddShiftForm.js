@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Button, Input} from '../Utils/Utils'
+import ShiftsApiService from '../../services/shifts-api-service'
+import { withRouter } from 'react-router-dom'
+import RaceDropDown from '../RaceDropDown/RaceDropDown';
 
-
-export default class AddShiftForm extends Component{
+class AddShiftForm extends Component{
     static defaultProps = {
         history: {
             push: () => {},
@@ -10,14 +12,20 @@ export default class AddShiftForm extends Component{
         onLoginSuccess: () => {}
       }
     
-    state = { error: null }
+    state = { 
+        error: null,
+      }
 
     handleSubmit = ev =>{
         ev.preventDefault()
         this.setState({ error: null })
-        console.log('added shift')
-        const {history} = this.props
+        const {shiftName, shiftDay, shiftDate, shiftTime, shiftRaceName} = ev.target
+        //make api post
+        ShiftsApiService.postShift(shiftName.value, shiftDay.value, shiftDate.value, shiftTime.value, shiftRaceName.value)
+          .catch(this.state.error)
+        const { history } = this.props
         history.push('/admin')
+        
     }
     render(){
         return(
@@ -27,53 +35,61 @@ export default class AddShiftForm extends Component{
             >
                 <div>
                     <label 
-                      htmlFor='shift-race-name'>
+                      htmlFor='shiftRaceName'>
                           Race Name
                     </label>
-                    <Input 
-                      name="shift-race-name" 
-                      type="text"
-                      id="shiftForm-race-name">
-                    </Input>
+                    <RaceDropDown name="shiftRaceName"></RaceDropDown>                   
                 </div>
                 <div>
                     <label 
-                      htmlFor='shift-name'>
+                      htmlFor='shiftName'>
                       Shift Name
                     </label>
                     <Input 
-                      name="shift-name" 
+                      name="shiftName" 
                       type="text" 
-                      id="shiftForm-name">
+                      id="shiftFormName">
                     </Input>
                 </div>
                 <div>
                     <label 
-                      htmlFor='shift-date'>
+                      htmlFor='shiftDate'>
                       Shift Date
                     </label>
                     <Input 
-                      name="shift-date" 
+                      name="shiftDate" 
                       type="text" 
-                      id="shiftForm-date">
+                      id="shiftFormDate">
                     </Input>
                 </div>
                 <div>
                     <label 
-                      htmlFor='shift-time'>
+                      htmlFor='shiftDay'>
+                      Shift Day
+                    </label>
+                    <Input 
+                      name="shiftDay" 
+                      type="text" 
+                      id="shiftFormDay">
+                    </Input>
+                </div>
+                <div>
+                    <label 
+                      htmlFor='shiftTime'>
                       Shift Time
                     </label>
                     <Input 
-                      name="shift-time" 
+                      name="shiftTime" 
                       type="text" 
-                      id="shiftForm-time">
+                      id="shiftFormTime">
                     </Input>
                 </div>
                 <Button 
-                  onClick={this.props.addShift}>
+                  type="submit">
                     Add Shift
                 </Button>
             </form>
         )
     }
 }
+export default withRouter(AddShiftForm)

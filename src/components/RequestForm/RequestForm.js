@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { Button, Input} from '../Utils/Utils'
+import RaceDropDown from '../RaceDropDown/RaceDropDown';
 import './RequestForm.css'
 
 export default class RequestForm extends Component{
-
+  state = { 
+    raceId:'',
+  }
+  onChange = (ev) => {
+    console.log('value', ev.target.value)
+  }
     render(){
         return(
             <form 
@@ -12,15 +18,13 @@ export default class RequestForm extends Component{
             >
                 <div>
                     <label 
-                      htmlFor='race-name'>
+                      htmlFor='shiftFormRaceName'>
                           Race Name
                     </label>
-                    <select name="races">
-                      <option value="habanero">Habanero 100</option>
-                      <option value="brazos">Brazos Bend 100</option>
-                      <option value="mission">Mission Tejas</option>
-                      <option value="possum">Possum's Revenge</option>
-                    </select>
+                    <RaceDropDown 
+                      name="shiftRaceName"
+                      onChange={this.onChange}>
+                    </RaceDropDown>
                 </div>
                 <div>
                     <label 

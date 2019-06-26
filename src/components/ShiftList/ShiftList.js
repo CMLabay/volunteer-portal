@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import ShiftItem from '../../components/ShiftItem/ShiftItem'
+import ShiftsApiService from '../../services/shifts-api-service'
 import './ShiftList.css'
 
 export default class ShiftList extends Component{
     state = {
+        userId: '',
+        raceId:
+         '',
         shiftItems: [
             {
                 name:"Main Aid Station",
@@ -42,6 +46,11 @@ export default class ShiftList extends Component{
             },
         ]
     }
+
+    componentDidMount(){
+        //api call to get available/taken shifts
+    }
+
     render(){
         return(
             <div>

@@ -23,16 +23,12 @@ export default class LoginForm extends Component {
             user_name.value = ''
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
-            this.props.clickHandler(user_name.value)
-            console.log('in login submit', user_name.value)
+            this.props.clickHandler(res.userType)
             this.props.onLoginSuccess()
           })
             .catch(res => {
               this.setState({ error: res.error })
             })
-        //this.props.clickHandler(user_name.value)
-        //console.log('in login submit', user_name.value)
-        //this.props.onLoginSuccess()
     }
 
     render() {
@@ -47,7 +43,7 @@ export default class LoginForm extends Component {
             </div>
             <div className='user_name'>
               <label htmlFor='LoginForm__user_name'>
-                User name
+                Email
               </label>
               <Input
                 required

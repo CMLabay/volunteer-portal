@@ -1,0 +1,17 @@
+import config from '../config'
+
+const RacesApiService = {
+    getRaces(){
+        return fetch(`${config.API_ENDPOINT}/races`, {
+            headers:{
+            },
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
+    },
+}
+
+export default RacesApiService

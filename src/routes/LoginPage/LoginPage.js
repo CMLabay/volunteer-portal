@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import { Section } from '../../components/Utils/Utils'
+import UserContext from '../../contexts/user-context'
 
 export default class LoginPage extends Component{
     state = {
-        userType: ''
+        userType: '',
+        userId:''
     }
     static defaultProps = {
         location: {},
@@ -12,13 +14,17 @@ export default class LoginPage extends Component{
           push: () => {},
         },
       }
-      changeType = (type) => {
-          console.log('type',type)
-          let newType = type;
-          this.setState({
-              userType: newType
-          });
-      }
+
+    static contextType = UserContext;
+
+    changeType = (type, userId, name, credits) => {
+        let newType = type;
+        this.context.setUser(userId, name, credits)
+        console.log('conte ', this.context)
+        this.setState({
+            userType: newType,
+        });
+    }
 
   componentDidUpdate(){
     let destination = '/home'
@@ -31,13 +37,13 @@ export default class LoginPage extends Component{
 
     render(){
         return(
-          <Section className='LoginPage'>
-            <h2>Login</h2>
-            <LoginForm
-              username={this.state.userType}
-              clickHandler={this.changeType}
-            />
-          </Section>
+            <Section className='LoginPage'>
+              <h2>Login</h2>
+              <LoginForm
+                username={this.state.userType}
+                clickHandler={this.changeType}
+              />
+            </Section>
         )
     }
 }

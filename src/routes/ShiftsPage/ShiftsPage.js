@@ -3,6 +3,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import ShiftList from '../../components/ShiftList/ShiftList'
 import RaceDropDown from '../../components/RaceDropDown/RaceDropDown';
 import './ShiftsPage.css'
+import UserContext from '../../contexts/user-context'
 
 export default class ShiftsPage extends Component{
     static defaultProps = {
@@ -13,6 +14,7 @@ export default class ShiftsPage extends Component{
 
       state = { 
         raceId:1,
+        userId:'',
         navLinks: [
             {
                 link:"Home", 
@@ -24,17 +26,13 @@ export default class ShiftsPage extends Component{
             }
         ]
     }
-
-    handleClick = () => {
-        const {history} = this.props
-        history.push('/home')
-    }
+    
     onChange = (ev) => {
-        console.log('value', ev.target.value)
         let raceId = ev.target.value
         this.setState({ raceId })
     }
 
+    static contextType = UserContext;
     render(){
         return(
             <div>
@@ -51,7 +49,6 @@ export default class ShiftsPage extends Component{
                     onChange={this.onChange}>
                 </RaceDropDown>  
                 <ShiftList 
-                    onClick={this.handleClick} 
                     className="shift-list"
                     raceId = {this.state.raceId}>
                 </ShiftList>

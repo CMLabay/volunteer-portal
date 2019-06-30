@@ -1,4 +1,5 @@
 import config from '../config'
+import TokenService from '../services/token-service'
 
 const AuthApiService = {
     postLogin({ email, password }){
@@ -27,6 +28,23 @@ const AuthApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
+            )
+    },
+    updateUser(user, credits){
+        return fetch(`${config.API_ENDPOINT}/users/${user}`, {
+            method: 'PATCH',
+            headers:{
+                'content-type': 'application/json',
+                'Authorization':`bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify({
+                credits: credits
+            }),
+        })
+        .then(res =>
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
             )
     },
 }

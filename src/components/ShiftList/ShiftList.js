@@ -2,53 +2,55 @@ import React, { Component } from 'react'
 import ShiftItem from '../../components/ShiftItem/ShiftItem'
 import ShiftsApiService from '../../services/shifts-api-service'
 import './ShiftList.css'
+import UserContext from '../../contexts/user-context'
 
 export default class ShiftList extends Component{
     state = {
         userId: '',
-        raceId:
-         '',
+        raceId:null,
+        error: null,
         shiftItems: [
             {
-                name:"Main Aid Station",
-                raceName:"Habanero 100",
-                date:"August 8",
-                time: "5am - 2pm",
-                day: "Saturday"
-            },
-            {
-                name:"Packet Pickup",
-                raceName:"Habanero 100",
-                date:"August 8",
-                time: "5am - 2pm",
-                day: "Saturday"
-            },
-            {
-                name:"Race Director Assistant",
-                raceName:"Habanero 100",
-                date:"August 8",
-                time: "5am - 2pm",
-                day: "Saturday"
-            },
-            {
-                name:"Merch",
-                raceName:"Habanero 100",
-                date:"August 8",
-                time: "5am - 2pm",
-                day: "Saturday"
-            },
-            {
-                name:"Medical",
-                raceName:"Habanero 100",
-                date:"August 8",
-                time: "5am - 2pm",
-                day: "Saturday"
+                id: null,
+                name: "",
+                race_id: null,
+                date: "",
+                day: "",
+                time:""
             },
         ]
     }
 
-    componentDidMount(){
+    static contextType = UserContext;
+
+    getShifts = () =>{
         //api call to get available/taken shifts
+        let userId = ''
+        let raceId = ''
+        if(this.props.userId){
+            userId = this.props.userId
+        } 
+        if(this.props.raceId){
+            raceId = this.props.raceId
+        }
+        ShiftsApiService.getShifts(raceId, userId)
+            .then(res => {
+                let shiftItems = res;
+                this.setState( { shiftItems })
+            })
+            .catch(this.state.error)
+    }
+    componentDidMount(){
+        this.getShifts()
+        let raceId = this.props.raceId
+        this.setState({ raceId })
+    }
+    componentDidUpdate(){
+        if(this.props.raceId !== this.state.raceId || this.context.updateFlag === true){
+            this.getShifts()
+            this.setState({raceId:this.props.raceId })
+            this.context.setUpdateFlag(false)
+        }
     }
 
     render(){
@@ -67,6 +69,8 @@ export default class ShiftList extends Component{
                                     shiftDate={this.state.shiftItems[key].date}
                                     shiftDay={this.state.shiftItems[key].day}
                                     shiftTime={this.state.shiftItems[key].time}
+                                    shiftId={this.state.shiftItems[key].id}
+                                    raceId={this.props.raceId}
                                     onClick={this.props.onClick}
                                 />
                             )

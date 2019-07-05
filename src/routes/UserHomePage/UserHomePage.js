@@ -40,7 +40,7 @@ export default class UserHomePage extends Component{
                 <h3>Hey there, {this.context.name}!</h3>
                 <p>Current Credits: {this.context.credits}</p>
                 <button onClick={this.handleSignUp}>Sign up for a shift</button>
-                <button onClick={this.handleRequest}>Request a race credit</button>
+        {/*<button onClick={this.handleRequest}>Request a race credit</button>*/}
                 <div className="my-shifts">
                     <h3>My Upcoming Shifts:</h3>
                     <ShiftList className="signedUp" userId={this.context.userId}></ShiftList>

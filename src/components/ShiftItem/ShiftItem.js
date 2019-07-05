@@ -19,7 +19,6 @@ class ShiftItem extends Component{
         })
         //add a credit to the user
         let credits = this.context.credits + 1
-        console.log('credits ', credits)
         AuthApiService.updateUser(this.context.userId, credits)
         this.context.updateCredits(this.context.credits + 1)
         const {history} = this.props

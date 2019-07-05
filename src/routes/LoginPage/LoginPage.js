@@ -20,7 +20,6 @@ export default class LoginPage extends Component{
     changeType = (type, userId, name, credits) => {
         let newType = type;
         this.context.setUser(userId, name, credits)
-        console.log('conte ', this.context)
         this.setState({
             userType: newType,
         });

@@ -8,7 +8,6 @@ export default class RequestForm extends Component{
     raceId:'',
   }
   onChange = (ev) => {
-    console.log('value', ev.target.value)
   }
     render(){
         return(

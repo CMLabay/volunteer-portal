@@ -4,6 +4,7 @@ const RacesApiService = {
     getRaces(){
         return fetch(`${config.API_ENDPOINT}/races`, {
             headers:{
+                'content-type': 'application/json'
             },
         })
         .then(res => 

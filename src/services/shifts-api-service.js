@@ -15,9 +15,9 @@ const ShiftApiService = {
             }
         }
         return fetch(`${config.API_ENDPOINT}/shifts?${queryString}`, {
-            headers: {
-
-            },
+            headers:{
+                'content-type': 'application/json'
+            }
         })
             .then(res =>
                 (!res.ok)

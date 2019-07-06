@@ -5,3 +5,6 @@ div{
     text-align:center;
     list-style: none;
 }
+.hide-message{
+    display:none;
+}

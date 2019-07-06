@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 import SummaryList from '../../components/SummaryList/SummaryList'
+import TokenService from '../../services/token-service'
 import './LandingPage.css'
 
 export default class LandingPage extends Component{
@@ -26,6 +27,35 @@ export default class LandingPage extends Component{
       handleRegistrationSuccess = user => {
         const { history } = this.props
         history.push('/login')
+      }
+
+      componentDidMount(){
+          //if a user is logged in, render a logout/home link, else, render login/register
+          let navLinks = []
+          if(!TokenService.hasAuthToken()){
+              navLinks = [
+                {
+                    link:"Register", 
+                    route:"register"
+                },
+                {
+                    link:"Login",
+                    route:"login"
+                }
+              ]
+          } else {
+              navLinks = [
+                  {
+                      link:"Home",
+                      route: "home"
+                  },
+                  {
+                      link:"Logout",
+                      route:"/"
+                  },
+              ]
+          }
+          this.setState({ navLinks })
       }
 
     render(){

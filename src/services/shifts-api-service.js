@@ -16,7 +16,8 @@ const ShiftApiService = {
         }
         return fetch(`${config.API_ENDPOINT}/shifts?${queryString}`, {
             headers:{
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
             }
         })
             .then(res =>
@@ -30,6 +31,7 @@ const ShiftApiService = {
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
             body: JSON.stringify({
                 user_id: user_id

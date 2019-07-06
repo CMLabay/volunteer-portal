@@ -9,6 +9,7 @@ export default class ShiftList extends Component{
         userId: '',
         raceId:null,
         error: null,
+        results: 0,
         shiftItems: [
             {
                 id: null,
@@ -35,8 +36,9 @@ export default class ShiftList extends Component{
         }
         ShiftsApiService.getShifts(raceId, userId)
             .then(res => {
+                let results = res.length
                 let shiftItems = res;
-                this.setState( { shiftItems })
+                this.setState( { shiftItems, results })
             })
             .catch(this.state.error)
     }
@@ -56,6 +58,7 @@ export default class ShiftList extends Component{
     render(){
         return(
             <div>
+                <h3 className={this.state.results === 0 ? 'show-message' : 'hide-message'}>You haven't selected any shifts yet, sign up for one above!</h3>
                 <ul className="available">
                     {Object.keys(this.state.shiftItems)
                         .map(key => {

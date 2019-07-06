@@ -10,6 +10,8 @@ import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import UserContext from '../../contexts/user-context'
+import PrivateRoute from '../Utils/PrivateRoute'
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
 
 class App extends Component {
   state = { 
@@ -53,31 +55,31 @@ class App extends Component {
             exact path={'/'}
             component={LandingPage}
           />
-          <Route 
+          <PrivateRoute 
             path={'/home'}
             component={UserHomePage}
           />
-          <Route 
+          <PrivateRoute 
             path={'/shifts'}
             component={ShiftsPage}
           />
-          <Route 
+          <PrivateRoute 
             path={'/request'}
             component={RequestPage}
           />
-          <Route 
+          <PrivateRoute 
             path={'/admin'}
             component={AdminHomePage}
           />
-          <Route 
+          <PrivateRoute 
             path={'/add-shifts'}
             component={AddShiftsPage}
           />
-          <Route 
+          <PublicOnlyRoute 
             path={'/login'}
             component={LoginPage}
           />
-          <Route 
+          <PublicOnlyRoute 
             path={'/register'}
             component={RegistrationPage}
           />

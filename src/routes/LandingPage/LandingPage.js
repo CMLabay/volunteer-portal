@@ -29,33 +29,44 @@ export default class LandingPage extends Component{
         history.push('/login')
       }
 
-      componentDidMount(){
-          //if a user is logged in, render a logout/home link, else, render login/register
-          let navLinks = []
-          if(!TokenService.hasAuthToken()){
-              navLinks = [
+      componentDidUpdate(){
+          if(!TokenService.hasAuthToken() && this.state.navLinks[1].link === 'Logout'){
+              this.checkToken()
+          }
+      }
+
+      checkToken = () => {
+        let navLinks = []
+        if(!TokenService.hasAuthToken()){
+            navLinks = [
+              {
+                  link:"Register", 
+                  route:"register"
+              },
+              {
+                  link:"Login",
+                  route:"login"
+              }
+            ]
+        } else {
+            navLinks = [
                 {
-                    link:"Register", 
-                    route:"register"
+                    link:"Home",
+                    route: "home"
                 },
                 {
-                    link:"Login",
-                    route:"login"
-                }
-              ]
-          } else {
-              navLinks = [
-                  {
-                      link:"Home",
-                      route: "home"
-                  },
-                  {
-                      link:"Logout",
-                      route:"/"
-                  },
-              ]
-          }
-          this.setState({ navLinks })
+                    link:"Logout",
+                    route:"/"
+                },
+            ]
+        }
+        this.setState({ navLinks })
+      }
+
+      componentDidMount(){
+          console.log('did mount')
+          //if a user is logged in, render a logout/home link, else, render login/register
+          this.checkToken()
       }
 
     render(){

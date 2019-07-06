@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { Button, Input } from '../Utils/Utils'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
+import './LoginForm.css'
 
 class LoginForm extends Component {
     static defaultProps = {
@@ -47,6 +48,7 @@ class LoginForm extends Component {
                 Email
               </label>
               <Input
+                className="form-input"
                 required
                 name='user_name'
                 id='LoginForm__user_name'>
@@ -57,6 +59,7 @@ class LoginForm extends Component {
                 Password
               </label>
               <Input
+                className="form-input"
                 required
                 name='password'
                 type='password'

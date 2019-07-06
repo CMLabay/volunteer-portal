@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Input, Required } from '../Utils/Utils'
 import AuthApiService from '../../services/auth-api-service'
+import './RegistrationForm.css'
 
 export default class RegistrationForm extends Component {
   static defaultProps = {
@@ -12,7 +13,6 @@ export default class RegistrationForm extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const { full_name, user_name, password } = ev.target
-    //code for actual registration will go here.
     this.setState({ error: null })
     AuthApiService.postUser({
       email: user_name.value,
@@ -46,6 +46,7 @@ export default class RegistrationForm extends Component {
             Full name <Required />
           </label>
           <Input
+            className="form-input"
             name='full_name'
             type='text'
             required
@@ -57,6 +58,7 @@ export default class RegistrationForm extends Component {
             Email <Required />
           </label>
           <Input
+            className="form-input"
             name='user_name'
             type='text'
             required
@@ -68,11 +70,13 @@ export default class RegistrationForm extends Component {
             Password <Required />
           </label>
           <Input
+            className="form-input"
             name='password'
             type='password'
             required
             id='RegistrationForm__password'>
           </Input>
+          <p className="pass-req">Password must be at least 8 characters and include at least one of each: uppercase letter, lowercase letter, number, and special character. </p>
         </div>
         <Button type='submit'>
           Register

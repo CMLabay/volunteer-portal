@@ -46,6 +46,7 @@ class AddShiftForm extends Component{
                       Shift Name
                     </label>
                     <Input 
+                      className="form-input"
                       name="shiftName" 
                       type="text" 
                       id="shiftFormName">
@@ -57,6 +58,7 @@ class AddShiftForm extends Component{
                       Shift Date
                     </label>
                     <Input 
+                      className="form-input"
                       name="shiftDate" 
                       type="text" 
                       id="shiftFormDate">
@@ -68,6 +70,7 @@ class AddShiftForm extends Component{
                       Shift Day
                     </label>
                     <Input 
+                      className="form-input"
                       name="shiftDay" 
                       type="text" 
                       id="shiftFormDay">
@@ -79,6 +82,7 @@ class AddShiftForm extends Component{
                       Shift Time
                     </label>
                     <Input 
+                      className="form-input"
                       name="shiftTime" 
                       type="text" 
                       id="shiftFormTime">

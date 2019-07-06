@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { format } from 'date-fns'
 import './ShiftItem.css'
 import { withRouter } from 'react-router-dom'
 import ShiftApiService from '../../services/shifts-api-service';
@@ -31,7 +32,7 @@ class ShiftItem extends Component{
             <li className="avail-item">
                 <h3>{this.props.shiftName}</h3>
                 <p>{this.props.raceName}</p>
-                <p className="avail-shift-date">{this.props.shiftDate}</p>
+                <p className="avail-shift-date">{format(this.props.shiftDate, 'Do MMM YYYY')}</p>
                 <p className="avail-shift-day">{this.props.shiftDay}</p>
                 <p className="avail-shift-time">{this.props.shiftTime}</p>
                 <button 

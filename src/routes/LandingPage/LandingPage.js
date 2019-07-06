@@ -33,6 +33,7 @@ export default class LandingPage extends Component{
             <div>
                 <NavBar className="navbar" navLinks={this.state.navLinks}></NavBar>
                 <h2 className="pageHeader">Volunteer Portal</h2>
+                <p>Signup for shifts, manage your points.</p>
                 <SummaryList></SummaryList>
                 <section>
                     <RegistrationForm onRegistrationSuccess={this.handleRegistrationSuccess}></RegistrationForm>

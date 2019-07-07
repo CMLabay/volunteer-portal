@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`race drop down component renders the ui as expected 1`] = `
+<select
+  id="shiftRaceName"
+  name="shiftRaceName"
+>
+  <option
+    literal=""
+    value=""
+  >
+    
+  </option>
+</select>
+`;

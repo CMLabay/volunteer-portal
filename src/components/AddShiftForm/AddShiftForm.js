@@ -16,10 +16,10 @@ class AddShiftForm extends Component{
         error: null,
       }
 
-    handleSubmit = ev =>{
+    handleSubmit = ev => {
         ev.preventDefault()
         this.setState({ error: null })
-        const {shiftName, shiftDay, shiftDate, shiftTime, shiftRaceName} = ev.target
+        const { shiftName, shiftDay, shiftDate, shiftTime, shiftRaceName } = ev.target
         //make api post
         ShiftsApiService.postShift(shiftName.value, shiftDay.value, shiftDate.value, shiftTime.value, shiftRaceName.value)
           .catch(this.state.error)
@@ -59,8 +59,7 @@ class AddShiftForm extends Component{
                     </label>
                     <Input 
                       className="form-input"
-                      name="shiftDate" 
-                      type="text" 
+                      name="shiftDate"
                       id="shiftFormDate">
                     </Input>
                 </div>

@@ -8,6 +8,9 @@ export default class NavLink extends Component{
     handleLogoutClick = () => {
         if(this.props.linkName === 'Logout'){
             TokenService.clearAuthToken()
+            window.sessionStorage.removeItem('UserID')
+            window.sessionStorage.removeItem('UserName')
+            window.sessionStorage.removeItem('UserCredits')
         } 
     }
     render(){

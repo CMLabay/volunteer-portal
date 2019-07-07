@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './AdminHomePage.css'
 import NavBar from '../../components/NavBar/NavBar'
-import RequestList from '../../components/RequestList/RequestList'
+//import RequestList from '../../components/RequestList/RequestList'
 import UserContext from '../../contexts/user-context'
 
 export default class AdminHomePage extends Component{

@@ -64,7 +64,6 @@ export default class LandingPage extends Component{
       }
 
       componentDidMount(){
-          console.log('did mount')
           //if a user is logged in, render a logout/home link, else, render login/register
           this.checkToken()
       }

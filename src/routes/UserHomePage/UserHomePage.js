@@ -57,7 +57,7 @@ export default class UserHomePage extends Component{
         {/*<button onClick={this.handleRequest}>Request a race credit</button>*/}
                 <div className="my-shifts">
                     <h3>My Upcoming Shifts:</h3>
-                    <ShiftList className="signedUp" userId={window.sessionStorage.getItem('UserID')}></ShiftList>
+                    <ShiftList className="signedUp" userId={this.context.userId === '' ? window.sessionStorage.getItem('UserID') : this.context.userId}></ShiftList>
                 </div>
             </div>
         )             

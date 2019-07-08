@@ -1,4 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Volunteer Portal 
+
+##Live Link 
+- [Volunteer Portal App](https://christinas-volunteer-portal.now.sh/)
+
+## Summary
+The user can create an account, and sign up for race volunteer shifts. When the user signs up for a shift, their volunteer credits increase by 1. Once signed up, on the user homepage, the shifts will display so that there will be no question in what shifts they are assigned. 
+As an admin, shifts can be created for the users to sign up for.
+
+##Screenshots: 
+
+An admin account has been set up in order to view the admin side of the app. 
+Username: email@web.com
+Password: P@ssword1
+
+### Registration Page:
+![Registration Page](Screenshots/RegPage.png)
+New users can create an account with their name, email and password.
+Admins will have to be added in to the database manually via postgres.
+
+### Login Page:
+![Login Page](Screenshots/Login.png)
+Returning users login with their email and password.
+
+### Admin Homepage:
+![Admin Home](Screenshots/Admin.png)
+Once logged in, the admin can select to create a new shift.
+Future versions will allow the admins to see a list of requests from the users for Race Credits.
+
+### Add Shifts Page:
+![Add Shifts](Screenshots/AddShifts.png)
+When adding a shift, each field is required in order to be submitted.
+
+### User Homepage:
+![User Home](Screenshots/User.png)
+On the homepage, users will be greated and can view their accumulated points and currently assigned shifts.
+
+### Select Shifts:
+![Select Shifts](Screenshots/Select.png)
+To select a new shift, the user will come to the Add Shifts page. Upon selecting, they will be taken back to their homepage.
+
+## Technologies Used
+* JavaScript
+* React 
+* Node
+* Express
+* Postgres
+
 
 ## Available Scripts
 

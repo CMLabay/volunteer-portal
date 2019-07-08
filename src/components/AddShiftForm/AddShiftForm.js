@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Input, Required} from '../Utils/Utils'
+import { Button, Input} from '../Utils/Utils'
 import ShiftsApiService from '../../services/shifts-api-service'
 import { withRouter } from 'react-router-dom'
 import RaceDropDown from '../RaceDropDown/RaceDropDown';
@@ -43,9 +43,10 @@ class AddShiftForm extends Component{
                 <div>
                     <label 
                       htmlFor='shiftName'>
-                      Shift Name <Required />
+                      Shift Name
                     </label>
                     <Input 
+                      required
                       className="form-input"
                       name="shiftName" 
                       type="text" 
@@ -55,9 +56,10 @@ class AddShiftForm extends Component{
                 <div>
                     <label 
                       htmlFor='shiftDate'>
-                      Shift Date <Required />
+                      Shift Date
                     </label>
                     <Input 
+                      required
                       className="form-input"
                       name="shiftDate"
                       id="shiftFormDate">
@@ -66,9 +68,10 @@ class AddShiftForm extends Component{
                 <div>
                     <label 
                       htmlFor='shiftDay'>
-                      Shift Day <Required />
+                      Shift Day
                     </label>
                     <Input 
+                      required
                       className="form-input"
                       name="shiftDay" 
                       type="text" 
@@ -78,9 +81,10 @@ class AddShiftForm extends Component{
                 <div>
                     <label 
                       htmlFor='shiftTime'>
-                      Shift Time <Required />
+                      Shift Time 
                     </label>
                     <Input 
+                      required
                       className="form-input"
                       name="shiftTime" 
                       type="text" 

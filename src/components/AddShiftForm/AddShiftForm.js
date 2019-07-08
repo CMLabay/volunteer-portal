@@ -38,7 +38,7 @@ class AddShiftForm extends Component{
                       htmlFor='shiftRaceName'>
                           Race Name
                     </label>
-                    <RaceDropDown name="shiftRaceName"></RaceDropDown>                   
+                    <RaceDropDown id="dropdown" name="shiftRaceName"></RaceDropDown>                   
                 </div>
                 <div>
                     <label 

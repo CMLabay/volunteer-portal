@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Section } from '../../components/Utils/Utils'
 import NavBar from '../../components/NavBar/NavBar'
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
+import './RegistrationPage.css'
 
 export default class RegistrationPage extends Component{
   state = { 

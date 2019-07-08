@@ -1,6 +1,22 @@
 .pass-req{
     font-size:12px;
 }
+form { 
+    margin: 0 auto; 
+}
 .form-input{
     text-align: left; 
+    border-radius: 2px;
+    height:20px;
+    width: 150px;
+}
+label{
+    display: block;
+}
+button{
+    width: 155px;
+}
+.pass-req{
+    color: red;
+    font-size:15px;
 }

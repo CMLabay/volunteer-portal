@@ -14,3 +14,11 @@ button:hover{
     background-color:red;
     color:white;
 }
+h3{
+    color:#cc0808;
+    font-family: 'Poppins', sans-serif;
+}
+p{
+    color:#022e59;
+    font-family: 'Poppins', sans-serif;
+}

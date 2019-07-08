@@ -14,11 +14,6 @@ export default class SummaryList extends Component{
                 image: "[placeholder]",
                 summary: "Quickly and easily sign select a shift to volunteer for."
             },
-            {
-                title: "Request free races",
-                image: "[placeholder]",
-                summary: "Easily request a code for a free race. You'll receive an email once the code is ready for use."
-            },
         ]
     }
     render(){

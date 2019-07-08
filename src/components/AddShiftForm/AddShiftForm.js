@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Input} from '../Utils/Utils'
+import { Button, Input, Required} from '../Utils/Utils'
 import ShiftsApiService from '../../services/shifts-api-service'
 import { withRouter } from 'react-router-dom'
 import RaceDropDown from '../RaceDropDown/RaceDropDown';
@@ -43,7 +43,7 @@ class AddShiftForm extends Component{
                 <div>
                     <label 
                       htmlFor='shiftName'>
-                      Shift Name
+                      Shift Name <Required />
                     </label>
                     <Input 
                       className="form-input"
@@ -55,7 +55,7 @@ class AddShiftForm extends Component{
                 <div>
                     <label 
                       htmlFor='shiftDate'>
-                      Shift Date
+                      Shift Date <Required />
                     </label>
                     <Input 
                       className="form-input"
@@ -66,7 +66,7 @@ class AddShiftForm extends Component{
                 <div>
                     <label 
                       htmlFor='shiftDay'>
-                      Shift Day
+                      Shift Day <Required />
                     </label>
                     <Input 
                       className="form-input"
@@ -78,7 +78,7 @@ class AddShiftForm extends Component{
                 <div>
                     <label 
                       htmlFor='shiftTime'>
-                      Shift Time
+                      Shift Time <Required />
                     </label>
                     <Input 
                       className="form-input"

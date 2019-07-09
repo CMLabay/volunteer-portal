@@ -42,16 +42,19 @@ export default class ShiftList extends Component{
             })
             .catch(this.state.error)
     }
+    updateState = () =>{
+        this.getShifts()
+        this.setState({raceId:this.props.raceId })
+        this.context.setUpdateFlag(false)
+    }
     componentDidMount(){
         this.getShifts()
         let raceId = this.props.raceId
         this.setState({ raceId })
     }
-    componentDidUpdate(){
-        if(this.props.raceId !== this.state.raceId || this.context.updateFlag === true){
-            this.getShifts()
-            this.setState({raceId:this.props.raceId })
-            this.context.setUpdateFlag(false)
+    componentWillReceiveProps(){
+        if(this.props.raceId !== this.state.raceId){
+            this.updateState()
         }
     }
 

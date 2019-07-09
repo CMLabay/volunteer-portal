@@ -34,10 +34,6 @@ export default class AdminHomePage extends Component{
                     onClick={this.handleSubmit}>
                     Add New Shift
                 </button>
-               {/*  <div className="code-req-list">
-                    <h3>Race Code Requests:</h3>
-                    <RequestList></RequestList>
-                </div> */}
             </div>   
         )
     }

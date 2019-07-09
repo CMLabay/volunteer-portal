@@ -6,12 +6,10 @@ export default class SummaryList extends Component{
         sectionInfo: [
             {
                 title: "Manage your volunteer credits",
-                image: "[placeholder]",
                 summary: "Volunteer Portal helps you view and manage your volunteer points, so you always know how many race credits you have."
             },
             {
                 title: "Sign up for volunteer shifts",
-                image: "[placeholder]",
                 summary: "Quickly and easily sign select a shift to volunteer for."
             },
         ]

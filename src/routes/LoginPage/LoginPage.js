@@ -26,10 +26,18 @@ export default class LoginPage extends Component{
 
     changeType = (type, userId, name, credits) => {
         let newType = type;
+        console.log('type', this.state.userType)
+        console.log('type', type)
+        let destination = '/home'
+        if(type === 'admin'){
+            destination = '/admin'
+        }
         this.context.setUser(userId, name, credits)
         this.setState({
             userType: newType,
         });
+        const { history } = this.props
+        history.push(destination)
     }
 
   componentDidUpdate(){

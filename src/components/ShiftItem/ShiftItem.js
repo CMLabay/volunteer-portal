@@ -19,9 +19,9 @@ class ShiftItem extends Component{
             this.context.setUpdateFlag(true)
         })
         //add a credit to the user
-        let credits = this.context.credits + 1
+        let credits = parseInt(this.context.credits) + 1
         AuthApiService.updateUser(this.context.userId, credits)
-        this.context.updateCredits(this.context.credits + 1)
+        this.context.updateCredits(parseInt(this.context.credits) + 1)
         const {history} = this.props
         history.push('/home')       
     }
